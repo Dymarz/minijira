@@ -80,7 +80,7 @@ onSaveTicket(ticket: Ticket): void {
 }
 
 onBack(): void {
-    this.headerTitle = "Ticketen";
+    this.headerTitle = "Ticket-Board";
     this.openTicket = false;
     this.addingTicket = false;
     this.currentTicket = undefined;

@@ -2,7 +2,7 @@
     <div class="header-div">
         <h1> {{headerTitle}} </h1>
     </div>
-    <app-ticket-list [tickets]="tickets" ></app-ticket-list>
+    <app-ticket-list *ngIf="!openTicket" [tickets]="tickets" (showTicket)="onSelectTicket($event)" ></app-ticket-list>
     <div class="button-container">
         <button
             matTooltip="Zurück"
@@ -45,5 +45,5 @@
         </div>
     </div>
 
-    <app-ticket></app-ticket>
+    <app-ticket *ngIf="openTicket" [ticket]="currentTicket"></app-ticket>
 </div>

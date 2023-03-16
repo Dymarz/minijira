@@ -1,11 +1,13 @@
-<mat-form-field>
-  <mat-label>Subject</mat-label>
-  <input matInput [value]="ticket.subject"/>
-</mat-form-field>
+<div class="container">
+  <mat-form-field>
+    <mat-label>Subject</mat-label>
+    <input matInput [value]="ticket?.subject" />
+  </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Description</mat-label>
-  <textarea matInput [value]="ticket.description"></textarea>
-</mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput [value]="ticket?.description"></textarea>
+  </mat-form-field>
 
-<button mat-stroked-button (click)="onSave()" color="primary">Save</button>
+  <button mat-stroked-button (click)="onSave()" color="primary">Save</button>
+</div>

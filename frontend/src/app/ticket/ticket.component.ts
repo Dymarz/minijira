@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ticket } from '../ticket';
 
 @Component({
@@ -11,10 +11,8 @@ export class TicketComponent{
   @Output()
   saveTicket = new EventEmitter<Ticket>();
 
-  ticket: Ticket = {
-    subject: "",
-    description: "",
-  };
+  @Input()
+  ticket?: Ticket;
 
   onSave(){
     this.saveTicket.emit(this.ticket);
