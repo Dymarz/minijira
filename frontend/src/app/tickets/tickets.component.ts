@@ -29,5 +29,60 @@ export class TicketsComponent implements OnInit {
   ]);
   constructor() {}
 
+  currentTicket?: Ticket;
+    openTicket: boolean = false;
+    addingTicket: boolean = false;
+
   ngOnInit(): void {}
+
+  onSelectTicket(ticket: Ticket): void {
+    this.currentTicket = ticket;
+
+   
+}
+
+onDelete(): void {
+    /*if (this.currentTicket) {
+        this.ticketService.delete(this.currentTicket).subscribe(() => {
+            this.snackbar.open('Ticket gelöscht!');
+            if(this.currentTicket) this.onDeleteSubject.next(this.currentTicket);
+        });
+    }*/
+}
+
+onEditTicket(): void {
+    this.headerTitle = "Ticket bearbeiten";
+    this.addingTicket = false;
+    this.openTicket = !this.openTicket;
+}
+
+onAddTicket(): void {
+    this.headerTitle = "Ticket hinzufügen";
+    this.addingTicket = true;
+    this.currentTicket = undefined;
+    this.openTicket = !this.openTicket;
+}
+
+onDeleteTicket(ticket: Ticket): void {
+    /*this.ticketService.delete(ticket).subscribe(() => {
+        this.currentTicket = undefined;
+        this.openTicket = false;
+    });*/
+}
+
+onSaveTicket(ticket: Ticket): void {
+    if (this.addingTicket) {
+       // this.ticketService.create(ticket).subscribe();
+        this.addingTicket = false;
+    } else {
+       // this.ticketService.update(ticket).subscribe();
+    }
+}
+
+onBack(): void {
+    this.headerTitle = "Ticketen";
+    this.openTicket = false;
+    this.addingTicket = false;
+    this.currentTicket = undefined;
+}
 }

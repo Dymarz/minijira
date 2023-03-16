@@ -1,7 +1,49 @@
-<div>
-    <div class="header">
+<div class="page">
+    <div class="header-div">
         <h1> {{headerTitle}} </h1>
     </div>
     <app-ticket-list [tickets]="tickets" ></app-ticket-list>
+    <div class="button-container">
+        <button
+            matTooltip="Zurück"
+            *ngIf="openTicket"
+            (click)="onBack()"
+            mat-mini-fab
+            color="primary"
+        >
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <div class="crud-container" *ngIf="!openTicket">
+            <button
+                matTooltip="Löschen"
+                *ngIf="!openTicket"
+                [disabled]="!currentTicket"
+                (click)="onDelete()"
+                mat-mini-fab
+                color="warn"
+            >
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button
+                matTooltip="Details"
+                [disabled]="!currentTicket"
+                (click)="onEditTicket()"
+                mat-mini-fab
+                color="primary"
+            >
+                <mat-icon>format_list_bulleted</mat-icon>
+            </button>
+
+            <button
+                (click)="onAddTicket()"
+                mat-mini-fab
+                matTooltip="Hinzufügen"
+                color="accent"
+            >
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
+
     <app-ticket></app-ticket>
 </div>
